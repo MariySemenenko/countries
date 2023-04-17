@@ -8,7 +8,7 @@ const searchParams = new URLSearchParams({
 });
 
 export const fetchCountries = (name) => {
-    return fetch(`${BASE_URL}${name}?${searchParams}`)
+    return fetch(`${BASE_URL}/${name}?${searchParams}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
