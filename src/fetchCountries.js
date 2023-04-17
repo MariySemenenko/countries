@@ -1,7 +1,7 @@
 
 
 
-const BASE_URL = 'https://restcountries.com/v3.1/name/{name}';
+const BASE_URL = 'https://restcountries.com/v3.1/name/{name,capital,population,flags,languages,}';
 
 const searchParams = new URLSearchParams({
     fields: 'name,capital,population,flags,languages,',
@@ -10,9 +10,10 @@ const searchParams = new URLSearchParams({
 export const fetchCountries = (name) => {
     return fetch(`${BASE_URL}${name}?${searchParams}`)
         .then(response => {
-            if (response.status === 404) {
+            if (!response.ok) {
                 throw new Error(response.status);
             }
             return response.json();
         });
 };
+ 
