@@ -11,9 +11,6 @@ const countryInfo = document.querySelector('.country-info');
 const searchBox = document.querySelector('#search-box');
 
 
-countriesList.style.visibility = 'hidden';
-countryInfo.style.visibility = 'hidden';
-
 searchBox.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
 function onInputSearch(e) {
@@ -87,3 +84,4 @@ function onInputSearch(e) {
       return cardMarkup;
   }
   
+
