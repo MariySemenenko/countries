@@ -1,13 +1,13 @@
 
-//імпорту. стилі CSS, функцію debounce lodash і бібліотеку Notiflix Notify.
+//імпортую стилі CSS, функцію debounce lodash і бібліотеку Notiflix Notify.
 
 import './css/styles.css';
-//import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './fetchCountries';
  import debounce from 'lodash.debounce';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-//встановлю. затримку в 300 мілісекунд 
+//встановлю затримку в 300 мілісекунд 
 const DEBOUNCE_DELAY = 300;
 //вибираю три елементи HTML 
 const countriesList = document.querySelector('.country-list');
@@ -92,23 +92,4 @@ function onInputSearch(e) {
   }
   
 
-  const BASE_URL = 'https://restcountries.com/v3.1/name';
-
-  // параметри запиту  поля країн
-  const searchParams = new URLSearchParams({
-      fields: 'name,capital,population,flags,languages,',
-  });
-  
-  // експортується функція fetchCountries, яка приймає назву країни як параметр і повертає обіцянку;
-  export const fetchCountries = (name) => {
-      return fetch(`${BASE_URL}/${name}?${searchParams}`)  //робиться запит до REST-сервісу країн за назвою
-          .then(response => {
-              if (!response.ok) { // перевірка на успішність виконання запиту, якщо запит не був успішним
-                  throw new Error(response.status);
-              }
-              return response.json(); //якщо запит був успішним, повертається об'єкт JSON з даними країни.
-  
-          });
-  };
-  
  
